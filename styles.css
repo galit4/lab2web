@@ -1,0 +1,535 @@
+/* ========== Глобальні стилі ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Темна тема (за замовчуванням) === */
+body,
+body.dark {
+    background-color: #0f172a;        /* slate-900 */
+    color: #e2e8f0;                   /* slate-200 */
+}
+
+/* === Світла тема (м'яка пастель) === */
+body.light {
+    background-color: #f8fafc;        /* slate-50 — м'який фон, не сліпуче-білий */
+    color: #0f172a;                   /* slate-900 */
+}
+
+/* ========== Header ========== */
+header {
+    position: relative;
+    background: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.light header {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+header p {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #bfdbfe;                   /* blue-200 */
+}
+
+body.light header p {
+    color: #dbeafe;                   /* blue-100 */
+}
+
+/* ========== Кнопка перемикача теми ========== */
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* ========== Grid Layout ========== */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 860px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* ========== Box Model — секції-картки ========== */
+section {
+    background-color: #1e293b;        /* slate-800 */
+    border: 1px solid #334155;        /* slate-700 */
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+                background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light section {
+    background-color: #ffffff;
+    border-color: #e2e8f0;            /* slate-200 */
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(29, 78, 216, 0.35);
+}
+
+body.light section:hover {
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.18);
+}
+
+section h2 {
+    color: #60a5fa;                   /* blue-400 */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+body.light section h2 {
+    color: #2563eb;                   /* blue-600 */
+    border-bottom-color: #e2e8f0;
+}
+
+section p {
+    color: #cbd5e1;                   /* slate-300 */
+}
+
+body.light section p {
+    color: #334155;                   /* slate-700 */
+}
+
+section ul {
+    list-style: none;
+}
+
+/* ========== Селектор класу — теги-навички ========== */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skills-list li {
+    background-color: #1d4ed8;        /* blue-700 */
+    color: #ffffff;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+body.light .skills-list li {
+    background-color: #2563eb;        /* blue-600 */
+}
+
+.skills-list li:hover {
+    background-color: #2563eb;
+}
+
+body.light .skills-list li:hover {
+    background-color: #1d4ed8;
+}
+
+/* ========== Селектор ID — секція контактів ========== */
+#contacts ul li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+body.light #contacts ul li {
+    color: #334155;
+}
+
+/* ========== Посилання + селектор атрибута + псевдокласи ========== */
+a {
+    color: #93c5fd;                   /* blue-300 */
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+body.light a {
+    color: #2563eb;                   /* blue-600 */
+}
+
+a[href^="https"] {
+    padding-left: 1.1em;
+    position: relative;
+}
+
+a[href^="https"]::before {
+    content: "🔗";
+    position: absolute;
+    left: 0;
+    font-size: 0.85em;
+}
+
+a:hover,
+a:focus {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+body.light a:hover,
+body.light a:focus {
+    color: #1d4ed8;
+}
+
+a:active {
+    color: #2563eb;
+}
+
+/* ========== Секція відгуків ========== */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-card {
+    background-color: #0f172a;        /* slate-900 */
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light .review-card {
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+.review-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 0.25rem;
+    text-transform: none;
+    letter-spacing: 0;
+    border: none;
+    padding: 0;
+}
+
+body.light .review-name {
+    color: #0f172a;
+}
+
+.review-email {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #60a5fa;
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+}
+
+.review-email::before {
+    content: none;
+}
+
+.review-body {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #94a3b8;                   /* slate-400 */
+}
+
+body.light .review-body {
+    color: #475569;                   /* slate-600 */
+}
+
+.reviews-status {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.reviews-status.error {
+    color: #f87171;                   /* red-400 */
+}
+
+/* ========== Footer + інформація про систему ========== */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #64748b;                   /* slate-500 */
+    font-size: 0.875rem;
+    margin-top: 1rem;
+}
+
+.system-info {
+    max-width: 860px;
+    margin: 0 auto 1.5rem;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light .system-info {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+}
+
+.system-info h3 {
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+body.light .system-info h3 {
+    color: #2563eb;
+}
+
+.system-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+body.light .system-info-list {
+    color: #334155;
+}
+
+.system-info-list li {
+    word-break: break-all;
+}
+
+.system-info-list strong {
+    color: #f1f5f9;
+    margin-right: 0.4em;
+}
+
+body.light .system-info-list strong {
+    color: #0f172a;
+}
+
+.copyright {
+    margin-top: 0.5rem;
+}
+
+/* ========== Модальне вікно ========== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 1rem;
+    animation: fadeIn 0.25s ease;
+}
+
+.modal.open {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 1.75rem 1.75rem 1.5rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    position: relative;
+    animation: slideUp 0.25s ease;
+}
+
+body.light .modal-content {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-content h2 {
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+body.light .modal-content h2 {
+    color: #2563eb;
+    border-bottom-color: #e2e8f0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.85rem;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.15s ease;
+}
+
+.modal-close:hover {
+    color: #f1f5f9;
+}
+
+body.light .modal-close:hover {
+    color: #0f172a;
+}
+
+/* === Форма === */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.modal form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+body.light .modal form label {
+    color: #334155;
+}
+
+.modal form input,
+.modal form textarea {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    color: #f1f5f9;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.15s ease, background-color 0.3s ease;
+}
+
+body.light .modal form input,
+body.light .modal form textarea {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+.modal form input:focus,
+.modal form textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.modal form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.submit-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.25rem;
+    transition: background-color 0.15s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* ========== Адаптивність ========== */
+@media (max-width: 600px) {
+    header {
+        padding: 2rem 1rem 2.5rem;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .theme-toggle {
+        top: 0.6rem;
+        right: 0.6rem;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+    }
+    section {
+        padding: 1.2rem;
+    }
+    main {
+        margin: 1rem auto;
+        gap: 1rem;
+    }
+    .system-info {
+        padding: 1rem;
+    }
+}
