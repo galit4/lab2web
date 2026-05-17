@@ -2,12 +2,15 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Дмитро</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <header>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Перемкнути тему">☀️ День</button>
     <h1>Дмитро</h1>
     <p>Web Security / Pentester</p>
 </header>
@@ -24,7 +27,7 @@
 
 <section>
     <h2>Навички</h2>
-    <ul>
+    <ul class="skills-list">
         <li>Web Pentesting</li>
         <li>Burp Suite</li>
         <li>Python</li>
@@ -47,7 +50,7 @@
     </p>
 </section>
 
-<section>
+<section id="contacts">
     <h2>Контакти</h2>
     <ul>
         <li>Email: dmytro.yurchyshyn.kb.2023@lpnu.ua</li>
@@ -55,11 +58,47 @@
     </ul>
 </section>
 
+<section id="reviews">
+    <h2>Відгуки роботодавців</h2>
+    <div id="reviews-list" class="reviews-list">
+        <p class="reviews-status">Завантаження відгуків…</p>
+    </div>
+</section>
+
 </main>
 
+<!-- Модальне вікно з формою зворотного зв'язку (з'являється через 60с) -->
+<div id="contact-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-content">
+        <button id="modal-close" class="modal-close" aria-label="Закрити вікно">×</button>
+        <h2 id="modal-title">Зворотний зв'язок</h2>
+        <form action="https://formspree.io/f/maqvlgon" method="POST">
+            <label>
+                <span>Ім'я</span>
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                <span>Email</span>
+                <input type="email" name="email" required>
+            </label>
+            <label>
+                <span>Телефон</span>
+                <input type="tel" name="phone" required>
+            </label>
+            <label>
+                <span>Повідомлення</span>
+                <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="submit-btn">Відправити</button>
+        </form>
+    </div>
+</div>
+
 <footer>
-    <p>2026</p>
+    <div id="system-info" class="system-info"></div>
+    <p class="copyright">2026</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
